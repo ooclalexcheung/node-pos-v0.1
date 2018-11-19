@@ -17,8 +17,16 @@ module.exports = function main(array) {
 		
 	}
 	for (var key in text_array) {
-		text += 'Name: '+ key + ', Quantity: ' + text_array[key][0] + " " + text_array[key][1] + ', Unit price: ' + text_array[key][2] + '.00 (yuan), Subtotal: ' + text_array[key][3] + '.00 (yuan)\n';
+		text+= 'Name: '+ key +', Quantity: ' + text_array[key][0];
+        if (text_array[key][0] >1){
+            text+= " ";
+            text+=text_array[key][1];
+            text+='s';
+        }
+		text+=', Unit price: ' + text_array[key][2] + '.00 (yuan), Subtotal: ' + text_array[key][3] + '.00 (yuan)\n';
+
+
 	};
  	text += '----------------------\n' +'Total: '+total+'.00 (yuan)\n' +'**********************\n';
 	return text;
-}; 
+};
